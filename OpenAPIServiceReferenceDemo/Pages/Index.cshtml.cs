@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using OpenAPIDemo.WidgetWebAPI;
-using System.Net.Http;
+using OpenAPIServiceReferenceDemo.WidgetWebAPI;
 
 namespace OpenAPIDemo.Pages
 {
@@ -20,7 +18,7 @@ namespace OpenAPIDemo.Pages
 
         public async Task OnGetAsync()
         {
-            var widgetAPI = new WidgetWebAPI.WidgetWebAPI("https://localhost:44325", _httpClient);
+            var widgetAPI = new WidgetWebAPI("https://localhost:44325", _httpClient);
 
             Widgets = (await widgetAPI.GetWidgetsAsync()).ToList();
         }
